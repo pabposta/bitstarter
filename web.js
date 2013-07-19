@@ -8,6 +8,11 @@ app.get('/', function(request, response) {
   response.send(greeting);
 });
 
+app.get('/img/*', function(request, response) {
+  var greeting = fs.readFileSync('.' + request.url);
+  response.send(greeting);
+});
+
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
